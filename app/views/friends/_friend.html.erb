@@ -1,0 +1,22 @@
+<tr id="<%= dom_id friend %>">
+  <td>
+      <%= link_to friend.first_name + ' ' + friend.last_name, friend %>
+      </td>
+  <td><%= friend.email %></td>
+  <td><%= friend.phone %></td>
+  <td>
+
+        <%= friend.twitter %>
+
+  </td>
+
+  <td>
+  <%= link_to "Delete",
+      friend_path(friend),
+      method: :delete,
+      data: { confirm: "Bạn có chắc muốn xóa bạn này không?" } , 
+      class: "btn btn-outline-danger btn-sm"
+  %>
+  </td>
+
+</tr>

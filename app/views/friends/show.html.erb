@@ -1,0 +1,35 @@
+<!-- app/views/friends/show.html.erb -->
+
+
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-2">
+    <h1 class="display-4"><%= @friend.first_name %> <%= @friend.last_name %></h1>
+    <p class="lead">
+      Thông tin liên hệ và profile của <strong><%= @friend.first_name %></strong>.
+    </p>
+    <hr class="my-3">
+
+    <div class="row">
+      <div class="col-md-8">
+        <p><strong>Email:</strong> <%= mail_to @friend.email %></p>
+        <p><strong>Phone:</strong> <%= @friend.phone.presence || content_tag(:em, "Chưa có") %></p>
+        <p>
+            <strong>Twitter:</strong>
+              @<%= @friend.twitter %>
+
+        </p>
+      </div>
+
+      <div class="col-md-4 d-flex align-items-center justify-content-md-end">
+        <div class="btn-group" role="group" aria-label="Friend actions">
+          <%= link_to "Edit", edit_friend_path(@friend), class: "btn btn-primary" %>
+          <%= link_to "Back", friends_path, class: "btn btn-secondary" %>
+          <%= button_to "Destroy", friend_path(@friend),
+                        method: :delete,
+                        data: { confirm: "Bạn có chắc muốn xóa bạn này không?" },
+                        class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

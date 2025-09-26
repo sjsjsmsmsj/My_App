@@ -1,0 +1,23 @@
+<% content_for :title, "Editing friend" %>
+
+<h1>Editing friend</h1>
+
+<%= render "form", friend: @friend %>
+
+<br>
+
+<div>
+  <%= link_to "Show this friend", @friend , 
+    class: "btn btn-secondary btn-sm"
+  %> |
+   <%= link_to "Delete",
+      @friend,
+      method: :delete,
+      data: { confirm: "Bạn có chắc muốn xóa bạn này không?" } , 
+      class: "btn btn-danger btn-sm"
+  %>|
+  <%= link_to "Back to friends", friends_path, 
+    class: "btn btn-primary btn-sm"
+  %>
+  
+</div>
